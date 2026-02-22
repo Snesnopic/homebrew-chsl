@@ -1,31 +1,30 @@
-class Chisel < Formula
+class Chsl < Formula
   desc "Experimental project aiming to recreate the functionality of FileOptimizer"
   homepage "https://github.com/Snesnopic/chisel"
-  version "1.0.1"
+  version "1.1.0"
   license "MIT"
 
   head "https://github.com/Snesnopic/chisel.git", branch: "main"
-  
+
   depends_on "cmake" => :build
   depends_on "rust" => :build
 
   if OS.mac? && Hardware::CPU.arm?
-    url "https://github.com/Snesnopic/chisel/releases/download/v1.0.1/chisel-macos-arm64.tar.gz"
-    sha256 "81105ac4597cccd17a84b2f39bf0cfb237806c78e0164d4bd4b96d8488527b15"
+    url "https://github.com/Snesnopic/chisel/releases/download/v1.1.0/chsl-macos-arm64.tar.gz"
+    sha256 "9396cbf203ef964c955c16727e011d77c006e1b98d3d90614e22a55636e9cc56"
   elsif OS.mac? && Hardware::CPU.intel?
-    url "https://github.com/Snesnopic/chisel/releases/download/v1.0.1/chisel-macos-x64.tar.gz"
-    sha256 "0d961362dc22d05e22644b3f1be064509b9e5ba6bf02ff8f0f7cce219e691c9e"
+    url "https://github.com/Snesnopic/chisel/releases/download/v1.1.0/chsl-macos-x64.tar.gz"
+    sha256 "723a26304b8cb4c44353f27067eef35b56a4127c9d67e165149cce39d64a94c7"
   elsif OS.linux? && Hardware::CPU.intel?
-    url "https://github.com/Snesnopic/chisel/releases/download/v1.0.1/chisel-linux-x64-gcc.tar.gz"
-    sha256 "846a24b7ac2f4472fca6e867fbe9e5555f68bb8d47faa61afe4c20ac351165ed"
+    url "https://github.com/Snesnopic/chisel/releases/download/v1.1.0/chsl-linux-x64-gcc.tar.gz"
+    sha256 "a8ec51a67e0780dfe5d3989bc7069259a83187ccf67c183d111332383c8343d7"
   elsif OS.linux? && Hardware::CPU.arm?
-    url "https://github.com/Snesnopic/chisel/releases/download/v1.0.1/chisel-linux-arm64.tar.gz"
-    sha256 "87c001cc793cf9d97531ca6736a9bd060ff55d14546e592ed087eb0e37e5738d"
+    url "https://github.com/Snesnopic/chisel/releases/download/v1.1.0/chsl-linux-arm64.tar.gz"
+    sha256 "2554361069111a170e11a5c66b7d503048d974d367b7a24de749bdffb331ffd9"
   end
 
   def install
     if build.head?
-      # Compilazione da sorgente per --HEAD
       system "cmake", "-S", ".", "-B", "build", *std_cmake_args
       system "cmake", "--build", "build", "--config", "Release"
       bin.install "build/bin/Release/chsl"
