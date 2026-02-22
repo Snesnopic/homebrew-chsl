@@ -29,15 +29,7 @@ class Chsl < Formula
       system "cmake", "--build", "build", "--config", "Release"
       bin.install "build/bin/Release/chsl"
     else
-      if OS.mac? && Hardware::CPU.arm?
-        bin.install "chsl-macos-arm64" => "chsl"
-      elsif OS.mac? && Hardware::CPU.intel?
-        bin.install "chsl-macos-x64" => "chsl"
-      elsif OS.linux? && Hardware::CPU.intel?
-        bin.install "chsl-linux-x64-gcc" => "chsl"
-      elsif OS.linux? && Hardware::CPU.arm?
-        bin.install "chsl-linux-arm64" => "chsl"
-      end
+      bin.install "chsl"
     end
   end
 
