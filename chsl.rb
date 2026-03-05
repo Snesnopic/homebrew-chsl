@@ -1,7 +1,7 @@
 class Chsl < Formula
   desc "Experimental project aiming to recreate the functionality of FileOptimizer"
   homepage "https://github.com/Snesnopic/chisel"
-  version "1.1.0"
+  version "1.2.0"
   license "MIT"
 
   head "https://github.com/Snesnopic/chisel.git", branch: "main"
@@ -10,17 +10,17 @@ class Chsl < Formula
   depends_on "rust" => :build
 
   if OS.mac? && Hardware::CPU.arm?
-    url "https://github.com/Snesnopic/chisel/releases/download/v1.1.0/chsl-macos-arm64.tar.gz"
-    sha256 "9396cbf203ef964c955c16727e011d77c006e1b98d3d90614e22a55636e9cc56"
+    url "https://github.com/Snesnopic/chisel/releases/download/v1.2.0/chsl-macos-arm64.tar.gz"
+    sha256 "2e4eb72ba7733cab9b5f80f7a9171c9dafaa71c0472085beae9186c5c1794722"
   elsif OS.mac? && Hardware::CPU.intel?
-    url "https://github.com/Snesnopic/chisel/releases/download/v1.1.0/chsl-macos-x64.tar.gz"
-    sha256 "723a26304b8cb4c44353f27067eef35b56a4127c9d67e165149cce39d64a94c7"
+    url "https://github.com/Snesnopic/chisel/releases/download/v1.2.0/chsl-macos-x64.tar.gz"
+    sha256 "b9326df5a2b5bc8de150c1e666aa527da2e2b680123d8cd42edb149d25a76fa1"
   elsif OS.linux? && Hardware::CPU.intel?
-    url "https://github.com/Snesnopic/chisel/releases/download/v1.1.0/chsl-linux-x64-gcc.tar.gz"
-    sha256 "a8ec51a67e0780dfe5d3989bc7069259a83187ccf67c183d111332383c8343d7"
+    url "https://github.com/Snesnopic/chisel/releases/download/v1.2.0/chsl-linux-x64-gcc.tar.gz"
+    sha256 "c775548420e2bde1759d0386caef5bbbec60e000ed1dd2f3a8af0501e86b7d7f"
   elsif OS.linux? && Hardware::CPU.arm?
-    url "https://github.com/Snesnopic/chisel/releases/download/v1.1.0/chsl-linux-arm64.tar.gz"
-    sha256 "2554361069111a170e11a5c66b7d503048d974d367b7a24de749bdffb331ffd9"
+    url "https://github.com/Snesnopic/chisel/releases/download/v1.2.0/chsl-linux-arm64.tar.gz"
+    sha256 "c67b90a4409dd7286d81228fae7892f8c6a30b6a823dcf02ffd2fe606313f39f"
   end
 
   def install
